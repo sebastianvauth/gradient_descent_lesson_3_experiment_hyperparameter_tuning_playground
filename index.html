@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3 - Experiment: Hyperparameter Tuning Playground</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            font-size: 150%;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-top: 20px;
+        }
+        p, li {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .image-placeholder, .interactive-placeholder, .continue-button, .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section, .stop-and-think, .reflection-prompt {
+            text-align: left;
+        }
+        .image-placeholder img, .interactive-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section, .stop-and-think, .reflection-prompt {
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .vocab-section {
+            background-color: #f0f8ff;
+        }
+        .vocab-section h3 {
+            color: #1e90ff;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .vocab-section h4 {
+            color: #000;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+        .vocab-term {
+            font-weight: bold;
+            color: #1e90ff;
+        }
+        .why-it-matters {
+            background-color: #ffe6f0;
+        }
+        .why-it-matters h3 {
+            color: #d81b60;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .stop-and-think {
+            background-color: #e6e6ff;
+        }
+        .stop-and-think h3 {
+            color: #4b0082;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .continue-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .reveal-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #4b0082;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .test-your-knowledge {
+            background-color: #e6ffe6;
+        }
+        .test-your-knowledge h3 {
+            color: #28a745;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .test-your-knowledge h4 {
+            color: #000;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+        .test-your-knowledge p {
+            margin-bottom: 15px;
+        }
+        .check-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #28a745;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-size: 1em;
+        }
+        .faq-section {
+            background-color: #fffbea;
+        }
+        .faq-section h3 {
+            color: #ffcc00;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .faq-section h4 {
+            color: #000;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+        .reflection-prompt {
+            background-color: #e6f3ff;
+        }
+        .reflection-prompt h3 {
+            color: #0066cc;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <section id="section1">
+        <h1>Lesson 3 - Experiment: Hyperparameter Tuning Playground</h1>
+        <div class="image-placeholder">
+            <img src="/placeholder.svg?height=300&width=600" alt="Image of a playground with various slides, swings, and climbing structures, symbolizing a space for free exploration and experimentation.">
+        </div>
+        <p>Get ready to experiment, hyperparameter explorers! 🧪 Welcome to the Hyperparameter Tuning Playground. In this lesson, you'll get hands-on experience with the crucial hyperparameters of Gradient Descent: the <strong>Learning Rate</strong>, <strong>Maximum Iterations</strong>, and <strong>Convergence Threshold</strong>. This is your chance to 'play' with these settings and develop an intuition for how they influence Gradient Descent's behavior. Let the experimentation begin!</p>
+        <div class="continue-button" onclick="showNextSection(2)">Continue</div>
+    </section>
+
+    <section id="section2">
+        <h2>The Hyperparameter Tuning Tool</h2>
+        <p>Below, you'll find an interactive tool that visualizes Gradient Descent in action. It's set up with a simple cost function landscape (a 2D curve).</p>
+        <div class="interactive-placeholder">
+            <img src="/placeholder.svg?height=400&width=600" alt="Interactive Placeholder: Hyperparameter Tuning Playground Tool. A 2D graph showing a cost function curve with sliders for Learning Rate, Maximum Iterations, and Convergence Threshold. A 'Run Gradient Descent' button is present, and the tool visualizes the path of gradient descent on the curve.">
+        </div>
+        <p>Use the sliders to adjust the <strong>Learning Rate ($$\alpha$$)</strong>, <strong>Maximum Iterations (N)</strong>, and <strong>Convergence Threshold ($$\epsilon$$)</strong>. Click 'Run Gradient Descent' to see the algorithm in action. Observe the path taken by Gradient Descent on the curve, the number of iterations, and the final cost function value achieved.</p>
+        <div class="continue-button" onclick="showNextSection(3)">Continue</div>
+    </section>
+
+    <section id="section3">
+        <h2>Experiment Task 1: Learning Rate Effects</h2>
+        <p>Let's start by focusing on the <strong>Learning Rate</strong>. This is arguably the most critical hyperparameter in Gradient Descent.</p>
+        <p><strong>Task:</strong> Keep the 'Maximum Iterations' and 'Convergence Threshold' at their default settings. Vary the <strong>Learning Rate</strong> slider slowly from a very small value (close to 0) to a large value (close to 1.0 or even higher). Observe what happens to Gradient Descent's behavior as you change the learning rate.</p>
+        <ol>
+            <li><strong>Small Learning Rate:</strong> Set the Learning Rate to a very small value (e.g., 0.001 or lower). Run Gradient Descent. What do you observe about the speed of convergence? How many iterations does it take?</li>
+            <li><strong>Medium Learning Rate:</strong> Gradually increase the Learning Rate. Find a 'medium' value that seems to make Gradient Descent converge reasonably quickly and smoothly. Observe the path and convergence speed.</li>
+            <li><strong>Large Learning Rate:</strong> Keep increasing the Learning Rate to larger values (e.g., 0.5, 0.8, 1.0 or higher). What happens now? Do you see oscillations? Does Gradient Descent still converge, or does it diverge (cost function increase)?</li>
+            <li><strong>Divergence Point:</strong> Try to find a Learning Rate value that is so large that Gradient Descent clearly <em>diverges</em>, meaning the cost function starts increasing instead of decreasing.</li>
+        </ol>
+        <div class="reflection-prompt">
+            <h3>Reflection</h3>
+            <h4>After experimenting with different learning rates, reflect on your observations. What general conclusions can you draw about the effect of the learning rate on Gradient Descent?</h4>
+            <button class="reveal-button" onclick="revealAnswer('reflection-1')">Reveal Key Observations</button>
+            <p id="reflection-1" style="display: none;">Key observations should include: Small learning rates lead to slow convergence, but stable descent. Large learning rates can lead to faster initial progress but oscillations, overshooting, and potential divergence. Finding a 'good' learning rate is about balancing speed and stability.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(4)">Continue</div>
+    </section>
+
+    <section id="section4">
+        <h2>Experiment Task 2: Maximum Iterations</h2>
+        <p>Now, let's explore the <strong>Maximum Number of Iterations (N)</strong>. This hyperparameter sets a limit on how long Gradient Descent will run.</p>
+        <p><strong>Task:</strong> Set the 'Learning Rate' to a value that you found to work reasonably well in Task 1 (a 'medium' learning rate). Now, significantly reduce the 'Maximum Iterations' value (e.g., to 10, 20, 50 iterations). Observe what happens when you limit the number of iterations.</p>
+        <ol>
+            <li><strong>Limited Iterations:</strong> With a small 'Maximum Iterations' value, run Gradient Descent. Does it reach convergence within the limited iterations? Does it reach the minimum of the cost function? How does the final cost function value compare to when you used a larger number of iterations?</li>
+            <li><strong>Insufficient Iterations:</strong> Try different small values for 'Maximum Iterations'. Can you find a value so small that Gradient Descent stops very early, far from the minimum, and with a relatively high cost function value?</li>
+        </ol>
+        <div class="reflection-prompt">
+            <h3>Reflection</h3>
+            <h4>Reflect on the role of Maximum Iterations. Why is it important to have this hyperparameter? What are the trade-offs of setting it too low vs. relying solely on the Convergence Threshold?</h4>
+            <button class="reveal-button" onclick="revealAnswer('reflection-2')">Reveal Key Insights</button>
+            <p id="reflection-2" style="display: none;">Key insights should include: Maximum Iterations prevents infinite loops and limits training time. Setting it too low might stop training prematurely before convergence. It's a safeguard when convergence is slow or uncertain, or when a time limit is needed.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(5)">Continue</div>
+    </section>
+
+    <section id="section5">
+        <h2>Experiment Task 3: Convergence Threshold</h2>
+        <p>Finally, let's investigate the <strong>Convergence Threshold ($$\epsilon$$)</strong>. This hyperparameter determines when Gradient Descent considers itself 'converged'.</p>
+        <p><strong>Task:</strong> Set a 'good' Learning Rate and a reasonably large 'Maximum Iterations' value (so iterations are not the limiting factor). Now, vary the 'Convergence Threshold' slider from a very small value (e.g., 0.0001) to a larger value (e.g., 0.1). Observe how the threshold affects convergence.</p>
+        <ol>
+            <li><strong>Small Threshold:</strong> Set a very small Convergence Threshold. Run Gradient Descent. How many iterations does it take to converge? How small does the gradient magnitude become at convergence? How precise is the final solution (cost function value)?</li>
+            <li><strong>Large Threshold:</strong> Increase the Convergence Threshold to a larger value. Run Gradient Descent again. How does the number of iterations change? How does the final cost function value compare to the small threshold case? Is convergence reached 'earlier' or 'later'?</li>
+            <li><strong>Trade-off:</strong> What is the trade-off between setting a very small and a larger Convergence Threshold?</li>
+        </ol>
+        <div class="reflection-prompt">
+            <h3>Reflection</h3>
+            <h4>Reflect on the role of the Convergence Threshold. How does it influence the 'precision' of the solution and the training time? What are the trade-offs of setting it too small vs. too large?</h4>
+            <button class="reveal-button" onclick="revealAnswer('reflection-3')">Reveal Key Takeaways</button>
+            <p id="reflection-3" style="display: none;">Key takeaways should include: Smaller thresholds lead to more precise solutions (lower cost) but might require more iterations (longer training time). Larger thresholds lead to faster convergence (fewer iterations) but potentially less precise solutions. Choosing the threshold involves balancing precision and training efficiency.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(6)">Continue</div>
+    </section>
+
+    <section id="section6">
+        <h2>Hyperparameter Exploration Complete!</h2>
+        <p>Congratulations, hyperparameter adventurer! 🚀 You've explored the Hyperparameter Tuning Playground and gained valuable intuition about how Learning Rate, Maximum Iterations, and Convergence Threshold influence Gradient Descent. This hands-on experience will be incredibly helpful as you apply Gradient Descent in practice. Share your key findings and insights in the course forum, and get ready for more optimization challenges!</p>
+    </section>
+
+    <script>
+        // Show the first section initially
+        document.getElementById("section1").style.display = "block";
+        document.getElementById("section1").style.opacity = "1";
+
+        function showNextSection(nextSectionId) {
+            const currentButton = event.target;
+            const nextSection = document.getElementById("section" + nextSectionId);
+            
+            currentButton.style.display = "none";
+            
+            nextSection.style.display = "block";
+            setTimeout(() => {
+                nextSection.style.opacity = "1";
+            }, 10);
+
+            setTimeout(() => {
+                nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 500);
+        }
+
+        function revealAnswer(id) {
+            const revealText = document.getElementById(id);
+            const revealButton = event.target;
+            
+            revealText.style.display = "block";
+            revealButton.style.display = "none";
+        }
+    </script>
+</body>
+</html>
