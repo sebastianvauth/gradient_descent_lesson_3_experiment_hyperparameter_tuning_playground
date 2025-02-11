@@ -163,11 +163,12 @@
 </head>
 <body>
     <section id="section1">
-        <h1>Lesson 3 - Experiment: Hyperparameter Tuning Playground</h1>
-        <div class="image-placeholder">
+<div class="image-placeholder">
             <img src="/placeholder.svg?height=300&width=600" alt="Image of a playground with various slides, swings, and climbing structures, symbolizing a space for free exploration and experimentation.">
         </div>
-        <p>Get ready to experiment, hyperparameter explorers! 🧪 Welcome to the Hyperparameter Tuning Playground. In this lesson, you'll get hands-on experience with the crucial hyperparameters of Gradient Descent: the <strong>Learning Rate</strong>, <strong>Maximum Iterations</strong>, and <strong>Convergence Threshold</strong>. This is your chance to 'play' with these settings and develop an intuition for how they influence Gradient Descent's behavior. Let the experimentation begin!</p>
+        <h1>Lesson 3 - Experiment: Hyperparameter Tuning Playground</h1>
+        
+        <p>Welcome to the Hyperparameter Tuning Playground. In this lesson, you'll get hands-on experience with the crucial hyperparameters of Gradient Descent: the <strong>Learning Rate</strong>, <strong>Maximum Iterations</strong>, and <strong>Convergence Threshold</strong>. This is your chance to 'play' with these settings and develop an intuition for how they influence Gradient Descent's behavior. Let the experimentation begin!</p>
         <div class="continue-button" onclick="showNextSection(2)">Continue</div>
     </section>
 
@@ -177,7 +178,7 @@
         <div class="interactive-placeholder">
             <img src="/placeholder.svg?height=400&width=600" alt="Interactive Placeholder: Hyperparameter Tuning Playground Tool. A 2D graph showing a cost function curve with sliders for Learning Rate, Maximum Iterations, and Convergence Threshold. A 'Run Gradient Descent' button is present, and the tool visualizes the path of gradient descent on the curve.">
         </div>
-        <p>Use the sliders to adjust the <strong>Learning Rate ($$\alpha$$)</strong>, <strong>Maximum Iterations (N)</strong>, and <strong>Convergence Threshold ($$\epsilon$$)</strong>. Click 'Run Gradient Descent' to see the algorithm in action. Observe the path taken by Gradient Descent on the curve, the number of iterations, and the final cost function value achieved.</p>
+        <p>Use the sliders to adjust the <strong>Learning Rate (\(\alpha\))</strong>, <strong>Maximum Iterations (N)</strong>, and <strong>Convergence Threshold (\(\epsilon\))</strong>. Click 'Run Gradient Descent' to see the algorithm in action. Observe the path taken by Gradient Descent on the curve, the number of iterations, and the final cost function value achieved.</p>
         <div class="continue-button" onclick="showNextSection(3)">Continue</div>
     </section>
 
@@ -192,9 +193,9 @@
             <li><strong>Divergence Point:</strong> Try to find a Learning Rate value that is so large that Gradient Descent clearly <em>diverges</em>, meaning the cost function starts increasing instead of decreasing.</li>
         </ol>
         <div class="reflection-prompt">
-            <h3>Reflection</h3>
+            <h3>Stop and Think</h3>
             <h4>After experimenting with different learning rates, reflect on your observations. What general conclusions can you draw about the effect of the learning rate on Gradient Descent?</h4>
-            <button class="reveal-button" onclick="revealAnswer('reflection-1')">Reveal Key Observations</button>
+            <button class="reveal-button" onclick="revealAnswer('reflection-1')">Reveal</button>
             <p id="reflection-1" style="display: none;">Key observations should include: Small learning rates lead to slow convergence, but stable descent. Large learning rates can lead to faster initial progress but oscillations, overshooting, and potential divergence. Finding a 'good' learning rate is about balancing speed and stability.</p>
         </div>
         <div class="continue-button" onclick="showNextSection(4)">Continue</div>
@@ -209,9 +210,9 @@
             <li><strong>Insufficient Iterations:</strong> Try different small values for 'Maximum Iterations'. Can you find a value so small that Gradient Descent stops very early, far from the minimum, and with a relatively high cost function value?</li>
         </ol>
         <div class="reflection-prompt">
-            <h3>Reflection</h3>
+            <h3>Stop and Think</h3>
             <h4>Reflect on the role of Maximum Iterations. Why is it important to have this hyperparameter? What are the trade-offs of setting it too low vs. relying solely on the Convergence Threshold?</h4>
-            <button class="reveal-button" onclick="revealAnswer('reflection-2')">Reveal Key Insights</button>
+            <button class="reveal-button" onclick="revealAnswer('reflection-2')">Reveal</button>
             <p id="reflection-2" style="display: none;">Key insights should include: Maximum Iterations prevents infinite loops and limits training time. Setting it too low might stop training prematurely before convergence. It's a safeguard when convergence is slow or uncertain, or when a time limit is needed.</p>
         </div>
         <div class="continue-button" onclick="showNextSection(5)">Continue</div>
@@ -219,7 +220,7 @@
 
     <section id="section5">
         <h2>Experiment Task 3: Convergence Threshold</h2>
-        <p>Finally, let's investigate the <strong>Convergence Threshold ($$\epsilon$$)</strong>. This hyperparameter determines when Gradient Descent considers itself 'converged'.</p>
+        <p>Finally, let's investigate the <strong>Convergence Threshold (\(\epsilon\))</strong>. This hyperparameter determines when Gradient Descent considers itself 'converged'.</p>
         <p><strong>Task:</strong> Set a 'good' Learning Rate and a reasonably large 'Maximum Iterations' value (so iterations are not the limiting factor). Now, vary the 'Convergence Threshold' slider from a very small value (e.g., 0.0001) to a larger value (e.g., 0.1). Observe how the threshold affects convergence.</p>
         <ol>
             <li><strong>Small Threshold:</strong> Set a very small Convergence Threshold. Run Gradient Descent. How many iterations does it take to converge? How small does the gradient magnitude become at convergence? How precise is the final solution (cost function value)?</li>
@@ -227,17 +228,16 @@
             <li><strong>Trade-off:</strong> What is the trade-off between setting a very small and a larger Convergence Threshold?</li>
         </ol>
         <div class="reflection-prompt">
-            <h3>Reflection</h3>
+            <h3>Stop and Think</h3>
             <h4>Reflect on the role of the Convergence Threshold. How does it influence the 'precision' of the solution and the training time? What are the trade-offs of setting it too small vs. too large?</h4>
-            <button class="reveal-button" onclick="revealAnswer('reflection-3')">Reveal Key Takeaways</button>
+            <button class="reveal-button" onclick="revealAnswer('reflection-3')">Reveal</button>
             <p id="reflection-3" style="display: none;">Key takeaways should include: Smaller thresholds lead to more precise solutions (lower cost) but might require more iterations (longer training time). Larger thresholds lead to faster convergence (fewer iterations) but potentially less precise solutions. Choosing the threshold involves balancing precision and training efficiency.</p>
         </div>
         <div class="continue-button" onclick="showNextSection(6)">Continue</div>
     </section>
 
     <section id="section6">
-        <h2>Hyperparameter Exploration Complete!</h2>
-        <p>Congratulations, hyperparameter adventurer! 🚀 You've explored the Hyperparameter Tuning Playground and gained valuable intuition about how Learning Rate, Maximum Iterations, and Convergence Threshold influence Gradient Descent. This hands-on experience will be incredibly helpful as you apply Gradient Descent in practice. Share your key findings and insights in the course forum, and get ready for more optimization challenges!</p>
+        <p>Congratulations! You've explored the Hyperparameter Tuning Playground and gained valuable intuition about how Learning Rate, Maximum Iterations, and Convergence Threshold influence Gradient Descent. This hands-on experience will be incredibly helpful as you apply Gradient Descent in practice. Share your key findings and insights in the course forum, and get ready for more optimization challenges!</p>
     </section>
 
     <script>
